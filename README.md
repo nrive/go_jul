@@ -50,7 +50,7 @@ Format: username,password
 Example: demo/demo
 - config/username_con.csv  
 CSV file containing contestants, if default_selected is set to 1 the contestant will be selected by default on the draw page   
-Format: contestant_name,default_selected
+Format: contestant_name,default_selected  
 Example: contestant1,1  
 - config/username_won.csv  
 CSV file containing winners, updated by the app
