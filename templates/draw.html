@@ -1,0 +1,104 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/static/base.css">
+	<style type="text/css">
+		div.draw {
+			color: #ffffff;
+			font-size: 80px;
+			height: 160px;
+			/* margin: auto; */
+			overflow: hidden;
+			position: fixed;
+			width: 100%;
+			top: 50%;
+			/* margin-right: auto; */
+			/* margin-left: auto; */
+			transform: translateY(-50%);
+			z-index: 0;
+		}
+
+		div.draw::before {
+			top: 0;
+		    left: 0;
+			/* width: 50%; */
+			/* margin-right: 25%; */
+			/* margin-left: 25%; */
+			width: 100%;
+			content: '';
+			height: 40px;
+			position: absolute;
+			/* background: linear-gradient(180deg, #83000c, #83000c00); */
+			background: linear-gradient(180deg, #0d2662, #0d266200);
+			z-index: 1;
+		}
+
+		div.draw::after {
+			left: 0;
+			bottom: 0;
+			/* width: 50%; */
+			/* margin-right: 25%; */
+			/* margin-left: 25%; */
+			width: 100%;
+			content: '';
+			height: 40px;
+			position: absolute;
+			/* background: linear-gradient(180deg, #83000c00, #83000c); */
+			background: linear-gradient(180deg, #0d266200, #0d2662);
+			z-index: 1;
+		}
+
+		ul.draw {
+			margin: 0;
+			padding: 0;
+			animation-name: scrollUp;
+    		animation-duration: {{.Duration}};
+    		animation-timing-function: ease-out;
+			animation-delay: {{.Delay}};
+			animation-fill-mode: forwards;
+		}
+
+		ul.draw li.draw {
+			height: 80px;
+			padding: 40px;
+			list-style: none;
+			text-align: center;
+		}
+
+		@keyframes scrollUp {
+			from {
+				transform: translateY(100%);
+			}
+
+			to {
+				transform: translateY({{.TransformY}});
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<canvas class="snow"></canvas>
+		<div class="draw">
+			<ul class="draw">
+				{{range .Con}}
+				<li class="draw">{{.}}</li>
+				{{end}}
+			</ul>
+		</div>
+		<div class="buttons">
+			<form method="POST">
+				<button type="submit" formaction="/d/redraw" name="redraw">Redraw</button>
+				<button type="submit" formaction="/d/add" name="add" value="{{.Res}}">Add</button>
+			</form>
+		</div>
+	</div>
+	<div class="result">
+		<ol class="result">
+			{{range .Won}}
+			<li class="result">{{.}}</li>
+			{{end}}
+		</ol>
+	</div>
+</body>
+<script src="/static/snow.js" type="text/javascript"></script>
+</html>

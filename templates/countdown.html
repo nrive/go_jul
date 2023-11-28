@@ -1,0 +1,30 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/base.css">
+    <style>
+        div.buttons {
+			bottom: 16;
+		}
+    </style>
+</head>
+<body>
+    <div>
+        <canvas class="snow"></canvas>
+        <div class="countdown">
+            <p id="countdown"></p>
+        </div>
+    </div>
+    <div class="result">
+        <ol class="result">
+            {{range .Won}}
+            <li class="result">{{.}}</li>
+            {{end}}
+        </ol>
+    </div>
+    <div class="buttons">
+        <input type="button" onclick="location.href='/select';" value="Draw" />
+    </div>
+</body>
+<script src="/static/snow.js"></script>
+<script src="/static/countdown.js"></script>
+</html>

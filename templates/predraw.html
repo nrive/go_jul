@@ -1,0 +1,114 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/static/base.css">
+	<style type="text/css">
+		div.buttons {
+			bottom: 16;
+		}
+
+		input[type="checkbox"]:checked + label {
+			background: #146b3adc;
+		}
+
+		label.select {
+			display: block;
+			background-color: #146b3a80;
+			color: white;
+			padding: 4px;
+			cursor: pointer;
+      width: 210px;
+		}
+
+		div.select {
+			color: white;
+			position: fixed;
+			top: 20;
+			right: 10;
+			bottom: 60;
+			width: 220px;
+			font-size: 16px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+
+		div.draw {
+			color: white;
+			font-size: 80px;
+			height: 160px;
+			/* margin: auto; */
+			overflow: hidden;
+			position: fixed;
+			width: 100%;
+			top: 50%;
+			/* margin-right: auto; */
+			/* margin-left: auto; */
+			transform: translateY(-50%);
+			z-index: 0;
+		}
+
+    input.name {
+      width: 200px;
+      padding: 7px 5px;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      background: #146b3a80;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    table, th, td {
+      border: none;
+      border-collapse: collapse;
+      border-spacing: none;
+    }
+	</style>
+</head>
+<body>
+	<div>
+		<canvas class="snow"></canvas>
+		<div class="draw">
+		</div>
+	</div>
+	<div class="select">
+		<form action="/d/draw" method="POST" id="selection">
+			<table id="conTable">
+				{{range .Selected}}
+				  <tr>
+            <td>
+						<input type="checkbox" id="{{.}}" name="selected" value="{{.}}" checked hidden>
+						<label for="{{.}}" class="select">{{.}}</label>
+            </td>
+				  </tr>
+				{{end}}
+				{{range .Unselected}}
+					<tr>
+            <td>
+						<input type="checkbox" id="{{.}}" name="selected" value="{{.}}" hidden>
+						<label for="{{.}}" class="select">{{.}}</label>
+            </td>
+					</tr>
+				{{end}}
+			</table>
+		</form>
+	</div>
+	<div class="buttons">
+    <input type="text" class=name id="name" placeholder="Enter temporary contestant..."/>
+    <input type="button" value="Add" onclick="addRow('name', 'conTable')"/>
+		<button form="selection" type="submit">Draw</button>
+		<input type="button" onclick="location.href='/logout';" value="Logout"/>
+	</div>
+</body>
+<script src="/static/snow.js" type="text/javascript"></script>
+<script>
+	function addRow(inputId, tableId) {
+		var inputValue = document.getElementById(inputId).value.trim();
+    document.getElementById(inputId).value=""
+		if (inputValue.length != 0) {
+			var table = document.getElementById(tableId);
+			var row = table.insertRow(table.rows.length);
+			row.innerHTML = "<input type='checkbox' id="+inputValue+" name='selected' value="+inputValue+" checked hidden><label for="+inputValue+" class='select'>"+inputValue+"</label>";
+		}
+	}
+</script>
+</html>

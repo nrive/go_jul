@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/base.css">
+    <style type="text/css">
+        body {
+            display: flex;
+        }
+
+        .container {
+            margin: auto;
+        }
+
+        input {
+            width: 300px;
+            padding: 10px 15px;
+            margin: 2px 0;
+            box-sizing: border-box;
+            border: none;
+        }
+
+        button {
+            margin: 6px 0;
+            width: 300px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/login" method="post">
+            <input type="text" placeholder="Username" name="user" required>
+            <br>
+            <input type="password" placeholder="Password" name="pass" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

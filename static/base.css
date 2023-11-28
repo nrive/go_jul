@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background: #83000c; */
+    /* background: #00216f; */
+    background: #0d2662;
+    /* background: url(/static/bg-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+canvas.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+button {
+    background-color: #146b3a;
+    /*background-color: #83000c;*/
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+div.buttons {
+    position: fixed;
+    bottom: 0;
+    right: 10;
+}
+
+div.result {
+    color: white;
+    position: fixed;
+    top: 20;
+    right: 0;
+    width: 220px;
+    font-size: 16px;
+    z-index: 10;
+}
+
+ol.result {
+    margin: 0;
+    padding: 0;
+}
+
+div.countdown {
+    color: #ffffffe0;
+    font-size: 160px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+input[type=button] {
+    background-color: #146b3a;
+    /*background-color: #83000c;*/
+    border: none;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+}
