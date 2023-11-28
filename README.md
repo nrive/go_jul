@@ -3,6 +3,7 @@
 ## Build go_jul
 Build go_jul binary for use with docker
 ```
+$ cd go_jul/app_src
 $ GOOS=linux GOARCH=amd64 go build -o ../app/go_jul go_jul.go
 ```
 
@@ -44,11 +45,12 @@ services:
 
 ## Config files
 - config/users.csv  
-CSV file containing users, username is used to identify the con and won files for the spesific users  
+CSV file containing users, the username is used to identify the con and won files for the specific users  
 Format: username,password  
-Default: demo/demo  
+Example: demo/demo
 - config/username_con.csv  
-CSV file containing contestants  
-Format: user,default_selected  
+CSV file containing contestants, if default_selected is set to 1 the contestant will be selected by default on the draw page   
+Format: contestant_name,default_selected
+Example: contestant1,1  
 - config/username_won.csv  
-CSV file containing winners  
+CSV file containing winners, updated by the app
