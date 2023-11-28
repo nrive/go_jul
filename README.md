@@ -48,9 +48,15 @@ services:
 CSV file containing users, the username is used to identify the con and won files for the specific users  
 Format: username,password  
 Example: demo/demo
-- config/username_con.csv  
-CSV file containing contestants, if default_selected is set to 1 the contestant will be selected by default on the draw page   
+- config/**username**_con.csv  
+CSV file containing contestants, if default_selected is set to 1 the contestant will be selected by default on the draw page
 Format: contestant_name,default_selected  
 Example: contestant1,1  
-- config/username_won.csv  
+- config/**username**_won.csv  
 CSV file containing winners, updated by the app
+
+ ## Adding new users
+ - Add a user to config/users.csv
+ - Add the corresponding **username**_con.csv and **username**_won.csv files
+ - Add contestants to the **username**_con.csv file
+
