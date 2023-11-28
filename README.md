@@ -1,23 +1,12 @@
 # go_jul
 
-## Files
-- config/users.csv  
-CSV file containing users, username is used to identify the con and won files for the spesific users  
-Format: username,password  
-Default: demo/demo  
-- config/username_con.csv  
-CSV file containing contestants  
-Format: user,default_selected  
-- config/username_won.csv  
-CSV file containing winners  
-
 ## Build go_jul
 Build go_jul binary for use with docker
 ```
 $ GOOS=linux GOARCH=amd64 go build -o ../app/go_jul go_jul.go
 ```
 
-## Docker directory structure
+## Docker build directory structure
 - go_jul
   - config
   - app
@@ -52,3 +41,14 @@ services:
     networks:
       - exposed
 ```
+
+## Config files
+- config/users.csv  
+CSV file containing users, username is used to identify the con and won files for the spesific users  
+Format: username,password  
+Default: demo/demo  
+- config/username_con.csv  
+CSV file containing contestants  
+Format: user,default_selected  
+- config/username_won.csv  
+CSV file containing winners  
